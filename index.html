@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Penal</title>
+  </head>
+  <body>
+    <flowise-fullchatbot></flowise-fullchatbot>
+    <script type="module">
+      import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
+      Chatbot.initFull({
+        chatflowid: "c4fe776f-0357-431d-af1d-04a89bf6b2e4",
+        apiHost: "https://flowise-z34o.onrender.com",
+      });
+    </script>
+    <script>
+      window.addEventListener("load", function () {
+        console.log("All assets are loaded");
+        let interval = setInterval(function () {
+          console.log(
+            "Waiting for the chatbot to load. Please wait a few seconds..."
+          );
+          let shadow = document.querySelector("flowise-fullchatbot").shadowRoot;
+          if (shadow) {
+            let chatbot_container = shadow.querySelector(".chatbot-container");
+            if (chatbot_container) {
+              let span = Array.from(chatbot_container.children).find(
+                (child) => child.tagName === "SPAN"
+              );
+              if (span) {
+                span.style.display = "none";
+
+                clearInterval(interval);
+              }
+            }
+          } else console.log("Waiting for the chatbot to load. Please wait a few seconds...");
+        }, 100);
+
+        // // get the first span element
+        // const span = chatbot_container.querySelector("span");
+        // // hide it
+        // span.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
