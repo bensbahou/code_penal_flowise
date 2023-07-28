@@ -16,11 +16,7 @@
     </script>
     <script>
       window.addEventListener("load", function () {
-        console.log("All assets are loaded");
         let interval = setInterval(function () {
-          console.log(
-            "Waiting for the chatbot to load. Please wait a few seconds..."
-          );
           let shadow = document.querySelector("flowise-fullchatbot").shadowRoot;
           if (shadow) {
             let chatbot_container = shadow.querySelector(".chatbot-container");
